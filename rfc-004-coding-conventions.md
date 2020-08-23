@@ -23,16 +23,19 @@ Members include: Properties, constructors, methods, fields, events.
 - Don't use abbreviations as part of identifier names.
 - Use `PascalCase` for all public / protected members.
 - Use `PascalCase` for all types.
-- Use `camelCase` for all private members and parameter names.
+- Use `camelCase` for all parameter names.
+- Use `_camelCase` for all private instance fields.
 
 ## Structure of *.cs files
 Partial classes are allowed do split the content of a class into well named files with the following notation: `Class1.Part1.cs`
 
+Implementations which are external to the concrete class must be either in a separate `#region` or a separate partial class.
+
 Inside a source file the structure is like:
- 1. Private fields
+ 1. Private fields (enclosed in a region tag `#region Fields`)
  2. Properties (enclosed in a region tag `#region Properties`)
- 3. Constructors
- 4. Methods
+ 3. Constructors (enclosed in a region tag `#region Constructors`)
+ 4. Methods (enclosed in a region tag `#region Methods`)
  
  ## Access modifiers
  All access modifiers should explicitly stated in the code.
